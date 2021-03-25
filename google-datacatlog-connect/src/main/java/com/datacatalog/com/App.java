@@ -33,18 +33,17 @@ public class App
             DataCatalogSettings settings = DataCatalogSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(mycreds)).build();
             DataCatalogClient client = DataCatalogClient.create(settings);
             
-        String projectId = "my-spanking-new-project";
-        String datasetId = "bq_sme_dataset";
+            String projectId = "my-spanking-new-project";
+            String datasetId = "bq_sme_dataset";
 
-    // Get an entry by the resource name from the source Google Cloud Platform service.
-    String linkedResource =
-        String.format("//bigquery.googleapis.com/projects/%s/datasets/%s", projectId, datasetId);
-    LookupEntryRequest request =
-        LookupEntryRequest.newBuilder().setLinkedResource(linkedResource).build();
+            // Get an entry by the resource name from the source Google Cloud Platform service.
+            String linkedResource =
+                String.format("//bigquery.googleapis.com/projects/%s/datasets/%s", projectId, datasetId);
+            LookupEntryRequest request =
+            LookupEntryRequest.newBuilder().setLinkedResource(linkedResource).build();
 
-        Entry entry = client.lookupEntry(request);
-        System.out.printf("Entry name: %s\n", entry.getName());
-
+            Entry entry = client.lookupEntry(request);
+            System.out.printf("Entry name: %s\n", entry.getName());
         }
         catch(IOException ex)
         {
